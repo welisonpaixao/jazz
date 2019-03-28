@@ -1,4 +1,4 @@
-package lucas.duarte.jazz.bean;
+package lucas.duarte.jazz.model.bean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,7 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
 @Entity
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", resolver = EntityIdResolver.class, scope = Long.class)
 public class Partida implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -23,7 +27,12 @@ public class Partida implements Serializable {
 	private boolean visitante;
 
 	@OneToMany(mappedBy = "partida", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
 	private List<Set> sets;
+
+	public Partida() {
+
+	}
 
 	public List<Set> getSets() {
 		return sets;

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import lucas.duarte.jazz.bean.Partida;
-import lucas.duarte.jazz.service.PartidaService;
+import lucas.duarte.jazz.model.bean.Partida;
+import lucas.duarte.jazz.model.service.PartidaService;
 
 @RestController
 @RequestMapping("/api")
@@ -29,7 +29,8 @@ public class PartidaController {
 		
 		if (partidas.isEmpty()) {
 			System.out.println("partidas vazias");
-			return new ResponseEntity(HttpStatus.NO_CONTENT);
+			//Retorna 404 pois nao achou nenhua partida
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<List<Partida>>(partidas, HttpStatus.OK);
 	}
@@ -49,6 +50,7 @@ public class PartidaController {
 		Partida partida = partidaServ.getpartidaById(id);
 		//Nao achou a partida
 		if (partida == null) {
+			//Nao achou nenhuma partida relacionada
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<Partida>(partida, HttpStatus.OK);

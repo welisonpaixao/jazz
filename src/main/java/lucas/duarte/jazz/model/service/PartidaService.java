@@ -1,4 +1,4 @@
-package lucas.duarte.jazz.service;
+package lucas.duarte.jazz.model.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lucas.duarte.jazz.bean.Partida;
-import lucas.duarte.jazz.repository.PartidaRepository;
+import lucas.duarte.jazz.model.bean.Partida;
+import lucas.duarte.jazz.model.repository.PartidaRepository;
 
 @Service
 public class PartidaService {
