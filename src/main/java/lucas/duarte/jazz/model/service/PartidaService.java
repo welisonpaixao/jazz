@@ -36,5 +36,7 @@ public class PartidaService{
 		}
 		return new ResponseEntity<List<Partida>>(partidas, HttpStatus.OK);
 	}
+	
+	
 
 }

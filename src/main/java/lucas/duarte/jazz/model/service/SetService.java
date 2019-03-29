@@ -1,5 +1,6 @@
 package lucas.duarte.jazz.model.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,16 @@ public class SetService {
 		} else {
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	public ResponseEntity<List<Set>> getSetsOfPartida(long partidaId){
+		List<Set> meuSets = setRepo.findOneByPartida(partidaId);
+		if (meuSets.isEmpty()) {
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}else {
+			return new ResponseEntity<List<Set>>(meuSets, HttpStatus.OK);
+		}
+		
+		
 	}
 }
