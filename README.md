@@ -1,5 +1,5 @@
 # jazz
-Repositório focado no deenvolvimento da aplicação Jazz, resposavel, peloc ontrole do placar, times, partidas
+Repositório focado no desenvolvimento da aplicação Jazz, responsável pelo gerenciamento dos campeonatos, partidas e set's
 
 # Getting Started
 
@@ -11,4 +11,3 @@ The following guides illustrate how to use some features concretely:
 * [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 * [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
 * [Handling Form Submission](https://spring.io/guides/gs/handling-form-submission/)
-
