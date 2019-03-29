@@ -1,16 +1,19 @@
 package lucas.duarte.jazz.model.service;
 
 import java.util.List;
-import java.util.Optional;
+
+import javax.xml.ws.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import lucas.duarte.jazz.model.bean.Partida;
 import lucas.duarte.jazz.model.repository.PartidaRepository;
 
 @Service
-public class PartidaService {
+public class PartidaService{
 	@Autowired
 	private PartidaRepository partidaRepo;
 	
@@ -25,9 +28,13 @@ public class PartidaService {
 		return partidaRepo.findById(id).orElse(null);
 	}
 	
-	public List<Partida> getAllPartidas() {
+	public ResponseEntity<List<Partida>> getAllPartidas() {
 		//Retorna uma lista de partidas
-		return partidaRepo.findAll();
+		List <Partida> partidas = partidaRepo.findAll();
+		if (partidas.isEmpty()) {
+			new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<Partida>>(partidas, HttpStatus.OK);
 	}
 
 }

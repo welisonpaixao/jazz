@@ -8,4 +8,7 @@ import lucas.duarte.jazz.model.bean.Partida;
 @Repository
 public interface PartidaRepository extends JpaRepository<Partida, Long> {
 	//E possivel criar metodos de query especificos aqui
+	public Partida findOneByTimeA(String timea);
+	public Partida findSetById(Long id);
+	
 }

@@ -20,40 +20,34 @@ import lucas.duarte.jazz.model.service.PartidaService;
 public class PartidaController {
 	@Autowired
 	private PartidaService partidaServ;
-	
-	//Get all partidas
+
+	// Get all partidas
 	@RequestMapping(value = "/partidas/", method = RequestMethod.GET)
 	public ResponseEntity<List<Partida>> listAllpartidas() {
-		System.out.println("Entrei no get");
-		List <Partida> partidas = partidaServ.getAllPartidas();
-		
-		if (partidas.isEmpty()) {
-			System.out.println("partidas vazias");
-			//Retorna 404 pois nao achou nenhua partida
-			return new ResponseEntity(HttpStatus.NOT_FOUND);
-		}
-		return new ResponseEntity<List<Partida>>(partidas, HttpStatus.OK);
+		return partidaServ.getAllPartidas();
 	}
-	
+
 	@RequestMapping(value = "/partidas/", method = RequestMethod.POST)
 	public ResponseEntity<?> createPartida(@RequestBody Partida partida, UriComponentsBuilder ucBuilder) {
 		System.out.println("Vou cadastrar uma partida");
-		//Validar se partida Ja Existe
+		// Validar se partida Ja Existe
 		partidaServ.cadastrarPartida(partida);
 		return new ResponseEntity<Partida>(partida, HttpStatus.CREATED);
-	
+
 	}
-	
+
 	@RequestMapping(value = "/partidas/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getPartida(@PathVariable("id") long id) {
-		//Retorna objeto ja instanciado
+		// Retorna objeto ja instanciado
 		Partida partida = partidaServ.getpartidaById(id);
-		//Nao achou a partida
+		// Nao achou a partida
 		if (partida == null) {
-			//Nao achou nenhuma partida relacionada
+			// Nao achou nenhuma partida relacionada
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<Partida>(partida, HttpStatus.OK);
 	}
-
+	
+	
+	
 }

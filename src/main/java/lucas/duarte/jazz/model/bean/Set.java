@@ -50,7 +50,7 @@ public class Set implements Serializable {
 	}
 
 	public void setPontoA(long pontoA) {
-		this.pontoA = pontoA;
+		this.pontoA += pontoA;
 	}
 
 	public long getPontoB() {
@@ -58,7 +58,7 @@ public class Set implements Serializable {
 	}
 
 	public void setPontoB(long pontoB) {
-		this.pontoB = pontoB;
+		this.pontoB += pontoB;
 	}
 
 	public boolean isSetFinalizado() {
