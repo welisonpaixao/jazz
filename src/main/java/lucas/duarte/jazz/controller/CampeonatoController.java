@@ -19,6 +19,7 @@ public class CampeonatoController {
 	
 	@RequestMapping(value = "/campeonato/", method = RequestMethod.GET)
 	public ResponseEntity<?> getAllCampeonatos() {
+		System.out.println("Entrei no get all campeonatos");
 		return campeonatoServ.getAllCampeonatos();
 
 	}
@@ -34,6 +35,7 @@ public class CampeonatoController {
 	@RequestMapping(value = "/campeonato/", method = RequestMethod.POST)
 	public ResponseEntity<?> createCampeonato(@RequestBody Campeonato camp, UriComponentsBuilder ucBuilder) {
 		// Apenas retorna a trataviva do service
+		System.out.println("Vou cadastrar um campeonato");
 		return campeonatoServ.salvarCampeonato(camp);
 
 	}
