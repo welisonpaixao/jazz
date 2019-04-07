@@ -53,7 +53,5 @@ public class SetService {
 		}else {
 			return new ResponseEntity<List<Set>>(meuSets, HttpStatus.OK);
 		}
-		
-		
 	}
 }
