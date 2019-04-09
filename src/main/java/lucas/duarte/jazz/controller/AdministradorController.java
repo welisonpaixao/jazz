@@ -23,13 +23,15 @@ public class AdministradorController {
 	@RequestMapping(value = "/administrador/", method = RequestMethod.POST)
 	public ResponseEntity<Administrador> createAdministrator(@RequestBody Administrador adm,
 			UriComponentsBuilder ucBuilder) {
+		System.out.println("estou aqui");
 		return administradorService.cadastrarAdministrador(adm);
 	}
 
 	// deletar um administrador
-	@RequestMapping(value = "/deleteadministrador/", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteAdministrador/", method = RequestMethod.DELETE)
 	public ResponseEntity<Administrador> deleteAdministrator(@RequestBody Administrador adm,
 			UriComponentsBuilder ucBuilder) {
+		System.out.println("estou aqui");
 		return administradorService.DeletarAdministrador(adm);
 	}
 
@@ -41,9 +43,10 @@ public class AdministradorController {
 	}
 
 //atualizar informações do Adm
-	@RequestMapping(value = "/Administrador/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/administrador/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateSet(@PathVariable("id") long id, @RequestBody Administrador adm,
 			UriComponentsBuilder ucBuilder) {
+		System.out.println("to aqui no update");
 		return administradorService.updateAdm(adm, id);
 
 	}

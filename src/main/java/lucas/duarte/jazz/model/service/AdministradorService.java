@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import lucas.duarte.jazz.model.bean.Administrador;
-import lucas.duarte.jazz.model.bean.Set;
 import lucas.duarte.jazz.model.repository.AdministradorRepository;
 
 @Service
@@ -36,9 +35,15 @@ public class AdministradorService {
 		}
 	}
 
-	public Administrador getAdministradorById(Long id) {
+	public ResponseEntity<Administrador> getAdministradorById(Long id) {
 
-		return administradorRepository.findById(id);
+		Administrador administrador = administradorRepository.findById(id).orElse(null);
+
+		if (administrador != null)
+			return new ResponseEntity<Administrador>(administrador, HttpStatus.OK);
+		else {
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
 	}
 
 	public ResponseEntity<List<Administrador>> getAlladministradores() {
@@ -49,22 +54,24 @@ public class AdministradorService {
 		}
 		return new ResponseEntity<List<Administrador>>(administradores, HttpStatus.OK);
 	}
+
 	public ResponseEntity<Administrador> updateAdm(Administrador adm, long id) {
-		Administrador admUpdate = administradorRepository.findById(id);
-		
+		System.out.println("Entrei no service ");
+		Administrador admUpdate = administradorRepository.findById(id).orElse(null);
 		if (admUpdate != null) {
-			if(admUpdate.getNome()!= null && admUpdate.getNome()!="" ) {
-			admUpdate.setNome(adm.getNome());
-			}else if(admUpdate.getEmail() != null && admUpdate.getEmail()!="") {
+			if (admUpdate.getNome() != null) {
+				admUpdate.setNome(adm.getNome());
+			} else if (admUpdate.getEmail() != null) {
 				admUpdate.setEmail(admUpdate.getEmail());
-			}else if(adm.getSenha()!= null && adm.getSenha()!= "") {
+			} else if (adm.getSenha() != null) {
 				admUpdate.setSenha(admUpdate.getSenha());
 			}
 			administradorRepository.save(admUpdate);
-			
+
 			return new ResponseEntity<Administrador>(admUpdate, HttpStatus.OK);
 		} else {
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 	}
+
 }

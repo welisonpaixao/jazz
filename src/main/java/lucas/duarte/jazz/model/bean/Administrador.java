@@ -18,7 +18,7 @@ public class Administrador implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 	@Column (nullable=false, length=200)
 	
 	@JsonProperty("nome")
@@ -33,7 +33,7 @@ public class Administrador implements Serializable {
 	private String senha;
 	@Column (nullable=false, length=200)
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	public void setId(int id) {
