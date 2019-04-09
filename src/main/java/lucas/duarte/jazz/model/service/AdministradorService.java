@@ -56,7 +56,6 @@ public class AdministradorService {
 	}
 
 	public ResponseEntity<Administrador> updateAdm(Administrador adm, long id) {
-		System.out.println("Entrei no service ");
 		Administrador admUpdate = administradorRepository.findById(id).orElse(null);
 		if (admUpdate != null) {
 			if (admUpdate.getNome() != null) {

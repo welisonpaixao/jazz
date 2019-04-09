@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import lucas.duarte.jazz.model.bean.Administrador;
-import lucas.duarte.jazz.model.bean.Set;
 import lucas.duarte.jazz.model.service.AdministradorService;
 
 @RestController
@@ -23,15 +22,13 @@ public class AdministradorController {
 	@RequestMapping(value = "/administrador/", method = RequestMethod.POST)
 	public ResponseEntity<Administrador> createAdministrator(@RequestBody Administrador adm,
 			UriComponentsBuilder ucBuilder) {
-		System.out.println("estou aqui");
 		return administradorService.cadastrarAdministrador(adm);
 	}
 
 	// deletar um administrador
-	@RequestMapping(value = "/deleteAdministrador/", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/administrador/", method = RequestMethod.DELETE)
 	public ResponseEntity<Administrador> deleteAdministrator(@RequestBody Administrador adm,
 			UriComponentsBuilder ucBuilder) {
-		System.out.println("estou aqui");
 		return administradorService.DeletarAdministrador(adm);
 	}
 
@@ -46,7 +43,6 @@ public class AdministradorController {
 	@RequestMapping(value = "/administrador/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<?> updateSet(@PathVariable("id") long id, @RequestBody Administrador adm,
 			UriComponentsBuilder ucBuilder) {
-		System.out.println("to aqui no update");
 		return administradorService.updateAdm(adm, id);
 
 	}
