@@ -36,6 +36,13 @@ public class Set implements Serializable {
 	private long tempoB;
 	@Column(name = "ganhador_set")
 	private String ganhador;
+	@Column(name = "set_finalizado")
+	private boolean setFinalizado;
+	
+	@ManyToOne
+	@JoinColumn(name = "partida_id")
+	@JsonBackReference
+	private Partida partida;
 	
 	public long getTempoA() {
 		return tempoA;
@@ -61,12 +68,6 @@ public class Set implements Serializable {
 		this.ganhador = ganhador;
 	}
 
-	@Column(name = "set_finalizado")
-	private boolean setFinalizado;
-	@ManyToOne
-	@JoinColumn(name = "partida_id")
-    @JsonBackReference
-	private Partida partida;
 	//https://pt.stackoverflow.com/questions/242288/infinite-recursion-stackoverflowerror-erro-ao-listar-produtos-com-categorias
 	public Long getId() {
 		return id;
