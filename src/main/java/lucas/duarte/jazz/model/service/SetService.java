@@ -36,6 +36,15 @@ public class SetService {
 			} else if (set.getPontoB() != 0) {
 				meuSet.setPontoB(set.getPontoB());
 				setRepo.save(meuSet);
+			} else if (set.getTempoA() != 0) {
+				meuSet.setTempoA(set.getTempoA());
+				setRepo.save(meuSet);
+			} else if (set.getTempoB() != 0) {
+				meuSet.setPontoB(set.getTempoB());
+				setRepo.save(meuSet);	
+			} else if (set.getGanhador() != null) {
+				meuSet.setGanhador(set.getGanhador());
+				setRepo.save(meuSet);
 			} else if (set.isSetFinalizado()) {
 				meuSet.setSetFinalizado(set.isSetFinalizado());
 				setRepo.save(meuSet);
