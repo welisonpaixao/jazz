@@ -37,6 +37,13 @@ public class PartidaService{
 		return new ResponseEntity<List<Partida>>(partidas, HttpStatus.OK);
 	}
 	
-	
+	public ResponseEntity<List<Partida>> getAllPartidasAndamento() {
+		//Retorna uma lista de partidas em andamento
+		List <Partida> partidas = partidaRepo.findPartidasAndamento();
+		if (partidas.isEmpty()) {
+			new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
+		return new ResponseEntity<List<Partida>>(partidas, HttpStatus.OK);
+	}
 
 }

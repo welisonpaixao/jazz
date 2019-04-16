@@ -48,6 +48,11 @@ public class PartidaController {
 		return new ResponseEntity<Partida>(partida, HttpStatus.OK);
 	}
 	
+	// Get all partidas andamento
+	@RequestMapping(value = "/partidasAndamento/", method = RequestMethod.GET)
+	public ResponseEntity<List<Partida>> listAllpartidasAndamento() {
+		return partidaServ.getAllPartidasAndamento();
+	}
 	
 	
 }

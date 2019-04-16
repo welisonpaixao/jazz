@@ -50,13 +50,31 @@ public class Partida implements Serializable {
 	private int desafioB;
 	private String urlLogoAdv;
 	private String ganhadorPartida;
-
+	private boolean partidaIniciada;
+	private boolean partidaFinalizada;
+	
 	public Partida() {
 
 	}
 
 	public List<Set> getSets() {
 		return sets;
+	}
+
+	public boolean isPartidaIniciada() {
+		return partidaIniciada;
+	}
+
+	public void setPartidaIniciada(boolean partidaIniciada) {
+		this.partidaIniciada = partidaIniciada;
+	}
+
+	public boolean isPartidaFinalizada() {
+		return partidaFinalizada;
+	}
+
+	public void setPartidaFinalizada(boolean partidaFinalizada) {
+		this.partidaFinalizada = partidaFinalizada;
 	}
 
 	public void setSets(List<Set> sets) {
