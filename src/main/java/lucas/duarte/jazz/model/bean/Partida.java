@@ -50,6 +50,8 @@ public class Partida implements Serializable {
 	private int desafioB;
 	private String urlLogoAdv;
 	private String ganhadorPartida;
+	private boolean partidaIniciada;
+	private boolean partidaFinalizada;
 
 	public Partida() {
 
@@ -166,6 +168,22 @@ public class Partida implements Serializable {
 
 	public void setGanhadorPartida(String ganhadorPartida) {
 		this.ganhadorPartida = ganhadorPartida;
+	}
+
+	public boolean isPartidaIniciada() {
+		return partidaIniciada;
+	}
+
+	public void setPartidaIniciada(boolean partidaIniciada) {
+		this.partidaIniciada = partidaIniciada;
+	}
+
+	public boolean isPartidaFinalizada() {
+		return partidaFinalizada;
+	}
+
+	public void setPartidaFinalizada(boolean partidaFinalizada) {
+		this.partidaFinalizada = partidaFinalizada;
 	}
 
 }
