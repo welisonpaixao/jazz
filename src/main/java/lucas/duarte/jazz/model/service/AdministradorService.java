@@ -72,5 +72,17 @@ public class AdministradorService {
 			return new ResponseEntity(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	public boolean loginAdmin(Administrador adm) {
+		Administrador admExistente = administradorRepository.findByEmailandSenha(adm.getEmail(), adm.getSenha());
+		if (admExistente != null) {
+
+			return true;
+
+		} else {
+			return false;
+
+		}
+	}
 
 }
